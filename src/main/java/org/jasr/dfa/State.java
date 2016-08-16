@@ -1,11 +1,14 @@
 package org.jasr.dfa;
 
-public class State<T> {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    private String  nombre;
-    private T       content;
-    private boolean startState;
-    private boolean acceptState;
+public class State<T> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(State.class);
+    private String              nombre;
+    private T                   content;
+    private boolean             startState;
+    private boolean             acceptState;
 
     public State(String nombre, T content, boolean startState, boolean acceptState) {
         super();
@@ -13,6 +16,7 @@ public class State<T> {
         this.content = content;
         this.startState = startState;
         this.acceptState = acceptState;
+        LOGGER.debug("Creating State: name {} start {} accept {}",nombre,startState,acceptState);
     }
 
     public String getNombre() {
@@ -29,6 +33,11 @@ public class State<T> {
 
     public boolean isAcceptState() {
         return acceptState;
+    }
+
+    @Override
+    public String toString() {
+        return "{name:" + nombre + ", start:" + startState + ", acceptState:" + acceptState + "}";
     }
 
 }

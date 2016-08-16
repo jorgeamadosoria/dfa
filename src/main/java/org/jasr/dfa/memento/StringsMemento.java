@@ -3,28 +3,34 @@ package org.jasr.dfa.memento;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringsMemento implements Memento<Character,List<String>>{
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    private List<StringBuilder> strings = new ArrayList<StringBuilder>();
+
+public class StringsMemento implements Memento<Character,List<String>>{
+    private static final Logger LOGGER = LoggerFactory.getLogger(StringsMemento.class);
+    private List<StringBuilder> state = new ArrayList<StringBuilder>();
     
     @Override
     public void reset(Character c) {
-        strings.add(new StringBuilder());
+        LOGGER.debug("Resetting memento with value: " + c);
+        state.add(new StringBuilder());
         update(c);
     }
 
     @Override
     public void update(Character c) {
-        if (strings.size() == 0)
-            strings.add(new StringBuilder());
-        strings.get(strings.size()-1).append(c);
+        LOGGER.debug("Updating memento with value: " + c);
+        if (state.size() == 0)
+            state.add(new StringBuilder());
+        state.get(state.size()-1).append(c);
     }
 
     @Override
     public List<String> current() {
-        
+        LOGGER.debug("Returning current memento value");
         List<String> result = new ArrayList<>();
-        for(StringBuilder sb:strings)
+        for(StringBuilder sb:state)
             result.add(sb.toString());
         
         return result;
@@ -32,7 +38,7 @@ public class StringsMemento implements Memento<Character,List<String>>{
 
     @Override
     public void init() {
-        strings.add(new StringBuilder());
+        state.add(new StringBuilder());
     }
 
 }

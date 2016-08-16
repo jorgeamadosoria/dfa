@@ -25,12 +25,12 @@ public class TestSyllabes {
         Character[] consGen = { 'm', 'n', 'ñ', 'j', 'q', 's', 'v', 'w', 'x', 'y', 'z' };
         Character[] erres = { 'r' };
         State<String> qi = new State<>("qi", "start state", true, true);
-        State<String> q0 = new State<>("q0", "consonantes de la silaba antes de las vocales", true, true);
-        State<String> q1 = new State<>("q1", "encontrada vocal fuerte", true, true);
-        State<String> q2 = new State<>("q2", "encontrada vocal debil", true, true);
-        State<String> q3 = new State<>("q3", "consonantes generales de la silaba despues de las vocales", true, true);
-        State<String> q4 = new State<>("q4", "encontrada l despues de las vocales", true, true);
-        State<String> q5 = new State<>("q5", "encontrada r despues de las vocales", true, true);
+        State<String> q0 = new State<>("q0", "consonantes de la silaba antes de las vocales", false, true);
+        State<String> q1 = new State<>("q1", "encontrada vocal fuerte", false, true);
+        State<String> q2 = new State<>("q2", "encontrada vocal debil", false, true);
+        State<String> q3 = new State<>("q3", "consonantes generales de la silaba despues de las vocales", false, true);
+        State<String> q4 = new State<>("q4", "encontrada l despues de las vocales", false, true);
+        State<String> q5 = new State<>("q5", "encontrada r despues de las vocales", false, true);
         Set<State<String>> states = new HashSet<State<String>>();
         states.add(qi);
         states.add(q0);

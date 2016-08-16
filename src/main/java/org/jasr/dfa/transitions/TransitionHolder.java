@@ -4,7 +4,7 @@ import org.jasr.dfa.State;
 import org.jasr.dfa.memento.Memento;
 
 public class TransitionHolder<T3> {
-
+    
     private State<T3>      to;
     private Transition transition;
 
