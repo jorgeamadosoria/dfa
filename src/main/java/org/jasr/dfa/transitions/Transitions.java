@@ -16,7 +16,7 @@ public class Transitions<T, T3> {
     public Transitions(Set<State<T3>> states) {
         LOGGER.debug("creation of Transitions object");
         for (State<T3> st : states) {
-            transitions.put(st, new HashMap<>());
+            transitions.put(st, new HashMap<T, TransitionHolder<T3>>());
         }
 
     }
