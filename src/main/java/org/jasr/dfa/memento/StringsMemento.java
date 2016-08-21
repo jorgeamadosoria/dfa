@@ -14,7 +14,7 @@ public class StringsMemento implements Memento<Character,List<String>>{
     @Override
     public void reset(Character c) {
         LOGGER.debug("Resetting memento with value: " + c);
-        state.add(new StringBuilder());
+        state = new ArrayList<StringBuilder>();
         update(c);
     }
 
@@ -38,7 +38,7 @@ public class StringsMemento implements Memento<Character,List<String>>{
 
     @Override
     public void init() {
-        state.add(new StringBuilder());
+        state = new ArrayList<StringBuilder>();
     }
 
 }

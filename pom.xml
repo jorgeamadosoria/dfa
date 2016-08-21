@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jorgeamadosoria</groupId>
 	<artifactId>dfa</artifactId>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<name>dfa</name>
 	<packaging>jar</packaging>
 
