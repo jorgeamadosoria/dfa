@@ -113,6 +113,11 @@ public class DFA<T, T2, T3> {
         LOGGER.debug("DFA created with {} states and {} as start state", states.size(), startState.toString());
     }
 
+    public void reset(){
+        this.current = startState;
+        this.memento.init();
+    }
+    
     public T2 getMemento() {
         return memento.current();
     }
