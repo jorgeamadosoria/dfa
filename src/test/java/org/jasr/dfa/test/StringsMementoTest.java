@@ -4,7 +4,7 @@ import org.jasr.dfa.memento.StringsMemento;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class StringMementoTest {
+public class StringsMementoTest {
 
     StringsMemento memento = new StringsMemento();
 
@@ -12,10 +12,14 @@ public class StringMementoTest {
     public void resetTest() {
         String[] csa = { "a" };
         String[] csb = { "b" };
+        String[] csab = {"a", "b" };
+        String[] empty = {};
         memento = new StringsMemento();
         memento.update('a');
         Assert.assertArrayEquals(csa, memento.current().toArray());
         memento.reset('b');
-        Assert.assertArrayEquals(csb, memento.current().toArray());
+        Assert.assertArrayEquals(csab, memento.current().toArray());
+        memento.init();
+        Assert.assertArrayEquals(empty, memento.current().toArray());
     }
 }
